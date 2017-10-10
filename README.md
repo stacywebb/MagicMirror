@@ -27,11 +27,18 @@ MagicMirror² focuses on a modular plugin system and uses [Electron](http://elec
 ### Raspberry Pi Support
 Electron, the app wrapper around MagicMirror², only supports the Raspberry Pi 2 & 3. The Raspberry Pi 1 is currently **not** supported. If you want to run this on a Raspberry Pi 1, use the [server only](#server-only) feature and setup a fullscreen browser yourself.
 
-### Automatic Installer (Raspberry Pi Only!)
+### Automatic Installer (Raspberry Pi)
 
 Execute the following command on your Raspberry Pi to install MagicMirror²:
 ````
 bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/MagicMirror/master/installers/raspberry.sh)"
+````
+
+### Automatic Installer (arm64)
+
+Execute the following command on your Raspberry Pi to install MagicMirror²:
+````
+bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/MagicMirror/master/installers/arm64.sh)"
 ````
 
 ### Manual Installation
@@ -87,8 +94,8 @@ If you want to run the server on a raspberry pi, use the `raspberry` tag. (basti
 ### Raspberry Configuration & Auto Start.
 
 The following wiki links are helpful in the configuration of your MagicMirror² operating system:
-- [Configuring the Raspberry Pi](https://github.com/MichMich/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
-- [Auto Starting MagicMirror](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
+- [Configuring the Raspberry Pi](https://github.com/stacywebb/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
+- [Auto Starting MagicMirror](https://github.com/stacywebb/MagicMirror/wiki/Auto-Starting-MagicMirror)
 
 ### Updating your MagicMirror²
 
