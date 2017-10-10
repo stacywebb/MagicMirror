@@ -21,14 +21,13 @@ echo -e "\e[0m"
 # Define the tested version of Node.js.
 NODE_TESTED="v5.1.0"
 
-# Determine which Pi is running.
+# Determine if arm64 is running.
 ARM=$(uname -m) 
 
 # Check the Raspberry Pi version.
-if [ "$ARM" != "armv7l" ]; then
-	echo -e "\e[91mSorry, your Raspberry Pi is not supported."
-	echo -e "\e[91mPlease run MagicMirror on a Raspberry Pi 2 or 3."
-	echo -e "\e[91mIf this is a Pi Zero, you are in the same boat as the original Raspberry Pi. You must run in server only mode."
+if [ "$ARM" != "aarch64" ]; then
+	echo -e "\e[91mSorry, This device is not supported."
+	echo -e "\e[91mPlease run MagicMirror on a device with an ARM64 chip."
 	exit;
 fi
 
@@ -101,7 +100,7 @@ if [ -d "$HOME/MagicMirror" ] ; then
 fi
 
 echo -e "\e[96mCloning MagicMirror ...\e[90m"
-if git clone https://github.com/MichMich/MagicMirror.git; then 
+if git clone https://github.com/stacywebb/MagicMirror.git; then 
 	echo -e "\e[92mCloning MagicMirror Done!\e[0m"
 else
 	echo -e "\e[91mUnable to clone MagicMirror."
@@ -152,7 +151,7 @@ fi
 read -p "Do you want use pm2 for auto starting of your MagicMirror (y/n)?" choice
 if [[ $choice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
-    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u pi --hp /home/pi"
+    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u root --hp /home/root"
     pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
     pm2 save
 fi
